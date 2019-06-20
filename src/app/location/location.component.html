@@ -1,0 +1,8 @@
+<div>
+  <button [disabled]="isTracking" class="btn btn-primary" (click)="findMe()">Find me</button>
+  <button class="btn btn-primary" (click)="trackMe()">Track me</button>
+</div>
+<div class="text-white">
+  <span>Latitude: {{currentLat}}</span>
+  <span>Longitude: {{currentLong}}</span>
+</div>

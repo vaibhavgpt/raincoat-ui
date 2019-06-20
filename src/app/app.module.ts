@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { SearchTagsComponent } from './search-tags/search-tags.component';
 import { AddTagsComponent } from './add-tags/add-tags.component';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     SearchTagsComponent,
-    AddTagsComponent    
+    AddTagsComponent,    
+    LocationComponent
   ],
   imports: [
     BrowserModule,
