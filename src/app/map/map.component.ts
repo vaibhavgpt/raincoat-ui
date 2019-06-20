@@ -10,6 +10,7 @@ declare var H: any;
 export class MapComponent implements OnInit {
 
   private platform: any;
+  private behavior: any;
 
   @ViewChild("map",  {static: false})
   public mapElement: ElementRef;
@@ -24,6 +25,19 @@ export class MapComponent implements OnInit {
   ngOnInit() {
   }
 
+  setUpClickListener(map) {
+    // Attach an event listener to map display
+    // obtain the coordinates and display in an alert box.
+    map.addEventListener('tap', function (evt) {
+      var coord = map.screenToGeo(evt.currentPointer.viewportX,
+              evt.currentPointer.viewportY);
+      alert('Clicked at ' + Math.abs(coord.lat.toFixed(4)) +
+          ((coord.lat > 0) ? 'N' : 'S') +
+          ' ' + Math.abs(coord.lng.toFixed(4)) +
+           ((coord.lng > 0) ? 'E' : 'W'));
+    });
+  }
+
   ngAfterViewInit() {
     let defaultLayers = this.platform.createDefaultLayers();
     let map = new H.Map(
@@ -31,9 +45,11 @@ export class MapComponent implements OnInit {
         defaultLayers.normal.map,
         {
             zoom: 10,
-            center: { lat: 37.7397, lng: -121.4252 }
+            center: { lat: 18.9961, lng: 72.8393 }
         }
     );
-}
+    this.behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    this.setUpClickListener(map);
+  }
 
 }
