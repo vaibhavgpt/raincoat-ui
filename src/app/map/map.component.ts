@@ -17,8 +17,8 @@ export class MapComponent implements OnInit {
 
   constructor() {
     this.platform = new H.service.Platform({
-      "app_id": "APP-ID-HERE",
-      "app_code": "APP-CODE-HERE"
+      "app_id": "uS4lUFB3BWzvyTMEhet3",
+      "app_code": "uS4lUFB3BWzvyTMEhet3"
     });
   }
 
